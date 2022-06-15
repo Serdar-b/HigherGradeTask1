@@ -4,6 +4,9 @@ import se.kh.iv1350.pointofsale.logAPI.TotalRevenueFileOutput;
 import se.kh.iv1350.pointofsale.model.Sale;
 import se.kh.iv1350.pointofsale.view.TotalRevenueView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class that makes call to an external accounting system,
  * for this application subsequent information will be hardcoded.
@@ -13,12 +16,25 @@ public class AccountingSystem {
     private ObserverTemplate obsView = new TotalRevenueView();
     private ObserverTemplate obsFile = new TotalRevenueFileOutput();
 
+    private List<ObserverTemplate> observers = new ArrayList<ObserverTemplate>();
+
+
+    /**
+     * Attaches a new observer to the list of observers
+     * @param observer the observer that should be attached to the list
+     */
+
+    public void attach(ObserverTemplate observer){
+        observers.add(observer);
+    }
+
     /**
      * Updates all the observers
      */
     private void notifyAllObservers(){
-        obsView.newSaleWasMade(amountOfMoneyInSystem);
-        obsFile.newSaleWasMade(amountOfMoneyInSystem);
+        for (ObserverTemplate observer : observers) {
+            observer.newSaleWasMade(amountOfMoneyInSystem);
+        }
     }
 
     /**

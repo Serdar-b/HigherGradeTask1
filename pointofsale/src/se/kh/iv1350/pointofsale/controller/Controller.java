@@ -6,6 +6,7 @@ import se.kh.iv1350.pointofsale.dto.ItemDTO;
 import se.kh.iv1350.pointofsale.integration.AccountingSystem;
 import se.kh.iv1350.pointofsale.integration.InventorySystem;
 import se.kh.iv1350.pointofsale.integration.Printer;
+import se.kh.iv1350.pointofsale.integration.observer.ObserverTemplate;
 import se.kh.iv1350.pointofsale.model.Sale;
 
 /**
@@ -93,5 +94,8 @@ public class Controller {
         sale.printReceipt(printer, paymentAmount);
     }
 
-
+    public void attach (ObserverTemplate obs)
+    {
+        accountingSystem.attach(obs);
+    }
 }

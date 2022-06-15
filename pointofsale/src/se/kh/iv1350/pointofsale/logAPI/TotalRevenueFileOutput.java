@@ -20,6 +20,7 @@ public class TotalRevenueFileOutput extends ObserverTemplate{
 
             BufferedWriter writer = new BufferedWriter(new FileWriter("totalRevenueNew.txt"));
             writer.write("total Revenue " + totalRevenue);
+            writer.write("\n Konungen Leif den Store" );
             writer.close();
     }
 

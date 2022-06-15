@@ -14,6 +14,9 @@ public class View {
 
     public View(Controller contr) {
         this.contr = contr;
+        contr.attach(new TotalRevenueView());
+        contr.attach(new TotalRevenueFileOutput());
+
     }
 
 }
