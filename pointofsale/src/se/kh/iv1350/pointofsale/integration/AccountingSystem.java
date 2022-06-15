@@ -13,8 +13,6 @@ import java.util.List;
  */
 public class AccountingSystem {
     private int amountOfMoneyInSystem;
-    private ObserverTemplate obsView = new TotalRevenueView();
-    private ObserverTemplate obsFile = new TotalRevenueFileOutput();
 
     private List<ObserverTemplate> observers = new ArrayList<ObserverTemplate>();
 
